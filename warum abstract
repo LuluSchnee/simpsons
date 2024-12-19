@@ -1,0 +1,8 @@
+2. Wann benutze ich abstract?
+Du benutzt abstract, wenn du eine Klasse erstellen möchtest, die nicht direkt instanziiert werden soll, aber dennoch gemeinsame Funktionalität oder Schnittstellen für ihre Unterklassen bereitstellt.
+
+Ein Beispiel:
+
+Wenn SimpsonPerson eine Klasse ist, die gemeinsame Eigenschaften oder Methoden für alle Personen in der Simpsons-Familie bietet, aber du keine direkte Instanz von SimpsonPerson erstellen möchtest, sondern nur von konkreten Unterklassen wie HomerSimpson, MargeSimpson usw.
+Wenn SimpsonPerson als abstrakte Klasse eine Vorlage für HomerSimpson oder MargeSimpson darstellt, dann macht es Sinn, SimpsonPerson abstrakt zu machen.
+

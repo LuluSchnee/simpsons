@@ -1,0 +1,16 @@
+@startuml
+
+abstract class simpsonPerson {
+    +name: String
+    +age: int
+    +speak(): void
+}
+
+abstract class hallo {
+    +greet(): void
+}
+
+simpsonPerson <|-- hall0
+@enduml
+
+
