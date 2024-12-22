@@ -1,20 +1,27 @@
 public class SimpsonPerson implements Person{
-    String name;
+   final String name;
     Gender gender;
-    SimpsonPerson mother;
-    SimpsonPerson father;
+   SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
+   SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
 
-public SimpsonPerson(String name, Gender gender) {
+
+public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father) throws Exception {
     //runtime exception
-    this.name = name;
+    if(name.length()>3) {
+        this.name = name;
+    }else{
+        throw new Exception("Exception message");
+    }
     this.gender = gender;
+    this.mother = mother; // Wird hier gesetzt und ist nachher unveränderlich
+    this.father = father; // Wird hier gesetzt und ist nachher unveränderlich
 }
 public String getName() {
     return name;
 }
 
-public String getGender() {
-    return gender.getDescription();
+public Gender getGender() {
+    return gender;
 }
 
 public SimpsonPerson getMother() {
@@ -23,4 +30,20 @@ public SimpsonPerson getMother() {
 public SimpsonPerson getFather() {
     return father;
 }
+
+    public void setFather(SimpsonPerson father) {
+if(this.father==null) {
+    this.father = father;
+}else{
+    throw new RuntimeException("Father cant be changed");
+}
+    }
+
+    public void setMother(SimpsonPerson mother) {
+    if(this.mother == null) {
+        this.mother = mother;
+    }else{
+       throw new RuntimeException("Mother cant be changed");
+    }
+    }
 }

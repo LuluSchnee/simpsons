@@ -1,5 +1,4 @@
 public interface Person {
     public String getName();
-   public String getGender();
-
+    public Gender getGender();
 }

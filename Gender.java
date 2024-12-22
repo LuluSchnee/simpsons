@@ -1,3 +1,3 @@
-public interface Gender {
-    public String getDescription();
+enum Gender {
+    MALE, FEMALE
 }
