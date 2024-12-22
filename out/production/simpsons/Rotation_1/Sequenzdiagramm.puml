@@ -1,0 +1,14 @@
+@startuml
+actor Nutzer
+participant "SimpsonsPerson" as SP
+
+
+Nutzer -> SP: createSimpsonsPerson(name, gender)
+alt Name hat weniger als 3 Zeichen
+    SP -> Nutzer: Fehler: Name muss mindestens 3 Zeichen haben
+else Name ist gültig
+    SP -> Nutzer: Figur erfolgreich erstellt
+end
+
+
+@enduml

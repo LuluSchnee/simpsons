@@ -10,7 +10,7 @@ public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPe
     if(name.length()>3) {
         this.name = name;
     }else{
-        throw new Exception("Exception message");
+        throw new Exception("Name must be longer than 3 characters.");
     }
     this.gender = gender;
     this.mother = mother; // Wird hier gesetzt und ist nachher unveränderlich
@@ -34,6 +34,7 @@ public SimpsonPerson getFather() {
     public void setFather(SimpsonPerson father) {
 if(this.father==null) {
     this.father = father;
+    System.out.println("Father created successfully");
 }else{
     throw new RuntimeException("Father cant be changed");
 }
@@ -42,6 +43,7 @@ if(this.father==null) {
     public void setMother(SimpsonPerson mother) {
     if(this.mother == null) {
         this.mother = mother;
+        System.out.println("Mother created successfully");
     }else{
        throw new RuntimeException("Mother cant be changed");
     }

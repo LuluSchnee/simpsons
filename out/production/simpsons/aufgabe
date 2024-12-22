@@ -1,0 +1,36 @@
+Aufgabe 1: Iterative Modellierung und Implementierung
+Kontext: Es sollen Menschen für ein Computerspiel objektorientiert modelliert werden, welches über viele Jahre weiterentwickelt werden soll.
+Das Spiel orientiert sich an der bekannten Welt der berühmten Simpsons-Familie, d.h. Personen aus der Simpsons-Welt werden in unserem
+Spiel die NPCs (nicht spielbarer Charaktere) sein. Nur die NPCs des Spiels werden in dieser Aufgabe betrachtet.
+
+Folgende Anforderungen sollen erfüllt sei:
+1. Jeder Charakter in der Simpsons-Welt ist auch ein Mensch und vom Typ SimpsonsPerson. (interface simpsons person)
+2. Eine Person in der (vereinfachten) Simpsons-Welt können nur männlichen oder weiblichen Geschlecht sein.
+In der Implementierung sollen folgende funktionale Anforderungen gelten:
+3. Für jede Person in der Simpsons-Welt gilt: Es muss einen Namen geben. Der Name hat mindestens 3 Zeichen und kann nicht geändert werden.
+4. Für jede Person in der vereinfachten Simpsons-Welt gilt: Sie kann einen biologischen Vater und eine biologische
+ Mutter besitzen. Diese müssen einzeln gesetzt und abgefragt werden können, aber in unserer (vereinfachten)  Welt verliert eine Person die Eltern nicht wieder.
+5. Für Personen gilt, dass sie im Spiel intern bekannt sein können, aber noch nicht geboren sein, d. h.
+die Spieler:innen können noch nicht mit diesen NPCs interagieren und können auch auf deren Namen nicht zugreifen.
+6. Sie leben im Spiel, d. h. die Spieler:innen können mit diesen NPCs interagieren und können auch auf deren Namen zugreifen.
+7. Sie sind im Spiel bereits gestorben, d. h. die Spieler:innen können nicht mehr mit diesen NPCs interagieren, aber sie können auf deren Namen zugreifen.
+8. Es muss möglich sein, das Geburtsdatum abzufragen.
+9. Die Interaktion mit Personen muss immer in der gleichen Form geschehen.
+10. Es muss möglich sein, mit allen Personen gleichzeitig zu interagieren.
+
+Modellieren und implementieren Sie entsprechend den Anforderungen in einer objektorientierten Programmiersprache Ihrer Wahl.
+ Führen Sie folgende Schritte durch:
+•	Extrahieren Sie eine möglichst kleine Menge von Anforderungen. Diese Menge muss aber so definiert werden, dass bei ihrer Implementierung eine durch
+Nutzer nutzbare Anwendung entstehen würde. Notieren Sie diese Anforderungen.
+•	Formulieren Sie nachvollziehbare, nutzerzentrierte (mindestens auf der ersten Ebene), überprüfbare und technologieneutrale User Stories für die Anforderungen.
+•	Modellieren Sie die Anwendung in UML: Nutzen Sie dafür ein Klassendiagramm und Sequenzdiagramm für die wichtigsten Lebenszyklen/Interaktionen.
+•	Implementieren Sie die wichtigsten Elemente Ihrer Modellierung und versehen Sie jede User Story mit (mindestens) einem entsprechenden Unit-Test.
+•	Committen Sie Ihre Implementierung in ein Git Repository. Taggen Sie die Anwendung im Git als Version “v1.0”.
+•	Wiederholen Sie Schritte und taggen Sie die Version im Git als “v2.0” bzw. "v3.0", wobei jeweils die Funktionalität erweitert werden soll.
+
+Kontrollfragen:
+•	Welche Funktionalität können Nutzer in Version 1.0, Version 2.0 und Version 3.0 tatsächlich nutzen? Waren es tatsächlich minimale Anforderungen/Funktionalitäten?
+•	Haben Sie sichergestellt, dass diese Funktionalität auch tatsächlich den Nutzern ermöglichen würden, konkrete Aufgaben zu lösen?
+•	Haben Sie den aktuellen Stand der Modellierung (Klassendiagramm und Sequenzdiagramme) im Git-Repository abgelegt? Was ist der passende Ort für die
+Ablage, um sicherzustellen, dass neuen Teammitgliedern einen bestmöglichen Einstieg in die aktuelle Implementierung ermöglicht wird?
+•	Wie viele der Änderungen durch neue Funktionalitäten haben Sie antizipiert und welche Änderungen erzeugten zwangsläufig ein Refactoring?
