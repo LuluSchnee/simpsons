@@ -7,13 +7,9 @@ public class main {
         SimpsonPerson Tochter = new SimpsonPerson("Sina", Gender.FEMALE, null, null);
 
         Tochter.setFather(Homer);
-
-
-
+        Tochter.setState(new died(Tochter));
         System.out.println(Tochter.getName());
         System.out.println(Tochter.getGender());
-        System.out.println(Tochter.getFather().getName());
-
         }
 
     }

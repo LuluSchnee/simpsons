@@ -22,3 +22,7 @@ Sequenzdiagramm: Definition und Erklärung
 Ein Sequenzdiagramm ist eine Art von UML-Diagramm (Unified Modeling Language), das die Interaktionen zwischen verschiedenen Objekten in einem System darstellt. Es zeigt den zeitlichen Ablauf dieser Interaktionen und hilft Entwicklern, den Prozess besser zu verstehen und zu planen.
 
 ![img.png](img.png)
+
+
+4. Design Pattern State
+![img_1.png](img_1.png)
