@@ -3,21 +3,26 @@ public class SimpsonPerson implements Person{
     Gender gender;
    SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
    SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
+State state;
 
-
+//strategy pattern, bridge pattern anschauen
 public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father) throws Exception {
     //runtime exception
-    if(name.length()>3) {
+    if(name==null || name.length()>3) {
         this.name = name;
     }else{
         throw new Exception("Name must be longer than 3 characters.");
     }
+    setState(new exist(this));
     this.gender = gender;
     this.mother = mother; // Wird hier gesetzt und ist nachher unveränderlich
     this.father = father; // Wird hier gesetzt und ist nachher unveränderlich
 }
+public void setState(State state) {
+this.state = state;
+}
 public String getName() {
-    return name;
+  return state.getName();
 }
 
 public Gender getGender() {

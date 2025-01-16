@@ -1,0 +1,10 @@
+@startuml
+actor Nutzer
+participant "SimpsonsPerson:Homer" as SP
+participant "State" as ST
+
+ SP -> ST:  getName()
+
+ SP <- ST:  return String
+
+@enduml

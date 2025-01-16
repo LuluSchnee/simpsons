@@ -1,0 +1,84 @@
+@startuml
+
+title Simpsons diagram
+
+
+interface State{
+setState()
+getName()
+}
+
+class Known{
+Known(SimpsonPerson)
+setState()
+getName()
+}
+
+class Alive{
+Alive(SimpsonPerson)
+
+getName()
+}
+
+class Dead{
+Dead(SimpsonPerson)
+
+getName()
+}
+
+
+
+
+title Simpsons diagram
+
+
+interface Human{
+getName()
+getGender()
+}
+
+
+Class SimpsonsPerson{
+final name: String
+final gender: Gender
+ mother:SimpsonsPerson
+Father:SimpsonsPerson
+SimpsonsPerson(name: String, gender: String, Father:SimpsonsPerson,  Mother:SimpsonsPerson)
+getName()
+getGender()
+getFather()
+setFather()
+getMother()
+setFather()
+getState()
+setState()
+}
+
+
+
+enum Gender{
+Male,Female
+}
+
+
+
+
+
+Human <|-- SimpsonsPerson
+SimpsonsPerson*- Gender
+SimpsonsPerson*- State
+note "funktion überprüfe ob 3 zeichen" as N1
+N1 -- SimpsonsPerson
+
+State <|-- Known
+State <|-- Alive
+State <|-- Dead
+
+@enduml
+
+
+
+
+
+
+
