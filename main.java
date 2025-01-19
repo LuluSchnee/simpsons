@@ -1,15 +1,20 @@
 public class main {
     public static void main(String[] args) throws Exception {
-
+        //TYPECAST
+        //MEDIATOR PATTERN
         // von abstracter klass kann man keine instanz bilden
-        SimpsonPerson Homer = new SimpsonPerson("Homer", Gender.MALE, null, null);
-        SimpsonPerson Marsh = new SimpsonPerson("Marsh", Gender.FEMALE, null, null);
-        SimpsonPerson Tochter = new SimpsonPerson("Sina", Gender.FEMALE, null, null);
+        SimpsonPerson homer = new ExistSimpsonPerson("Homer", Gender.MALE);
+        SimpsonPerson marsh = new ExistSimpsonPerson("Marsh", Gender.FEMALE);
+        SimpsonPerson tochter = new ExistSimpsonPerson("Sina", Gender.FEMALE);
 
-        Tochter.setFather(Homer);
-        Tochter.setState(new died(Tochter));
-        System.out.println(Tochter.getName());
-        System.out.println(Tochter.getGender());
+        BaseSimpsonPerson  homeralive = new AliveSimpsonPerson(homer);
+        BaseSimpsonPerson  tochteralive = new AliveSimpsonPerson(tochter);
+        tochteralive.setFather(homeralive);
+        homeralive = new DiedSimpsonPerson(homeralive);
+        tochteralive = new DiedSimpsonPerson(tochteralive);
+// nicht sehr gut, da kein deconstruktor
+        homer=null;
+
         }
 
     }
