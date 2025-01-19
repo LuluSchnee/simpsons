@@ -19,12 +19,17 @@ public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPe
     this.father = father; // Wird hier gesetzt und ist nachher unveränderlich
 }
 public void setState(State state) {
-this.state = state;
+    if(this.state instanceof exist && state instanceof live || this.state instanceof live && state instanceof died || this.state==null) {
+        this.state = state;
+    }
+
 }
 public String getName() {
   return state.getName();
 }
-
+public State getState() {
+    return state;
+}
 public Gender getGender() {
     return gender;
 }

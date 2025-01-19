@@ -6,7 +6,7 @@ public class exist implements State{
     }
     @Override
     public String getName() {
-        return "Name nicht verfügbar";
+        throw new UnsupportedOperationException("Die Methode getName() wird nicht unterstützt.");
     }
 
     //destructor erstellen
