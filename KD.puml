@@ -1,0 +1,56 @@
+@startuml
+
+interface Person {
+  +getName(): String
+  +getGender(): Gender
+}
+
+interface State {
+  +getName(): String
+}
+
+class SimpsonPerson implements Person {
+  -name: String
+  -gender: Gender
+  -mother: SimpsonPerson
+  -father: SimpsonPerson
+  -state: State
+  +SimpsonPerson(name: String, gender: Gender, mother: SimpsonPerson, father: SimpsonPerson)
+  +setState(state: State): void
+  +getName(): String
+  +getState(): State
+  +getGender(): Gender
+  +getMother(): SimpsonPerson
+  +getFather(): SimpsonPerson
+  +setFather(father: SimpsonPerson): void
+  +setMother(mother: SimpsonPerson): void
+}
+
+class live implements State {
+  -person: SimpsonPerson
+  +live(person: SimpsonPerson)
+  +getName(): String
+}
+
+class died implements State {
+  -person: SimpsonPerson
+  +died(person: SimpsonPerson)
+  +getName(): String
+}
+
+class exist implements State {
+  -Person: SimpsonPerson
+  +exist(person: SimpsonPerson)
+  +getName(): String
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+SimpsonPerson  *--  State : has
+
+SimpsonPerson "1" *-- "1" Gender : has
+
+@enduml

@@ -7,7 +7,7 @@ public class Create {
         SimpsonPerson Tochter = new SimpsonPerson("Sina", Gender.FEMALE, null, null);
 
         Tochter.setFather(Homer);
-        Tochter.setState(new live(Tochter));
+       // Tochter.setState(new live(Tochter));
   //      Tochter.setState(new died(Tochter));
        System.out.println(Tochter.getState());
         System.out.println(Tochter.getName());
