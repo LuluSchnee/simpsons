@@ -13,7 +13,7 @@ public class main {
         homeralive = new DiedSimpsonPerson(homeralive);
         tochteralive = new DiedSimpsonPerson(tochteralive);
 // nicht sehr gut, da kein deconstruktor
-        homer=null;
+          homer=null;
 
         }
 
