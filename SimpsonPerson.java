@@ -1,7 +1,7 @@
 public class SimpsonPerson implements Person{
    final String name;
     Gender gender;
-   SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
+     SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
     SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
     State state;
     protected Mediator mediator;
@@ -19,6 +19,7 @@ public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPe
     this.mother = mother; // Wird hier gesetzt und ist nachher unveränderlich
     this.father = father; // Wird hier gesetzt und ist nachher unveränderlich
 }
+
 public void setState(State state) {
     if(this.state instanceof exist && state instanceof live || this.state instanceof live && state instanceof died || this.state==null) {
         this.state = state;
@@ -71,8 +72,6 @@ if(this.father==null) {
         } else {
             throw new UnsupportedOperationException("Du bist tot oder nichtgeboren und kannst deswegen keine nachrichten versenden.");
         }
-
-
 
 
 }
