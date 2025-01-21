@@ -48,7 +48,10 @@ enum Gender {
   MALE
   FEMALE
 }
-
+interface Mediator {
+sendMessage(String msg, SimpsonPerson person):void;
+	void addSimpsonPerson(Simpson Person);
+}
 SimpsonPerson  *--  State : has
 
 SimpsonPerson "1" *-- "1" Gender : has
