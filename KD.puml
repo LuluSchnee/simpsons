@@ -1,56 +1,77 @@
 @startuml
 
-interface Person {
-  +getName(): String
-  +getGender(): Gender
-}
-
 interface State {
-  +getName(): String
+    + String getName()
+    + void interact(String msg, SimpsonPerson person)
+    + void recieve(String msg, SimpsonPerson person)
 }
 
-class SimpsonPerson implements Person {
-  -name: String
-  -gender: Gender
-  -mother: SimpsonPerson
-  -father: SimpsonPerson
-  -state: State
-  +SimpsonPerson(name: String, gender: Gender, mother: SimpsonPerson, father: SimpsonPerson)
-  +setState(state: State): void
-  +getName(): String
-  +getState(): State
-  +getGender(): Gender
-  +getMother(): SimpsonPerson
-  +getFather(): SimpsonPerson
-  +setFather(father: SimpsonPerson): void
-  +setMother(mother: SimpsonPerson): void
+class SimpsonPerson {
+    + final String name
+    + Gender gender
+    + final SimpsonPerson mother
+    + final SimpsonPerson father
+    + State state
+    + SimpsonWorld world
+    --
+    + SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father, SimpsonWorld world) throws Exception
+    + void setState(State state)
+    + String getName()
+    + State getState()
+    + Gender getGender()
+    + SimpsonPerson getMother()
+    + SimpsonPerson getFather()
+    + void setFather(SimpsonPerson father)
+    + void setMother(SimpsonPerson mother)
+    + void interact(String msg, SimpsonPerson person)
+    + void receive(String msg)
 }
 
-class live implements State {
-  -person: SimpsonPerson
-  +live(person: SimpsonPerson)
-  +getName(): String
-}
-
-class died implements State {
-  -person: SimpsonPerson
-  +died(person: SimpsonPerson)
-  +getName(): String
+class SimpsonWorld {
+    - ArrayList<SimpsonPerson> personList
+    --
+    + SimpsonWorld()
+    + void sendMessage(String msg, SimpsonPerson person)
+    + void addPerson(SimpsonPerson person)
 }
 
 class exist implements State {
-  -Person: SimpsonPerson
-  +exist(person: SimpsonPerson)
-  +getName(): String
+    - SimpsonPerson person
+    --
+    + exist(SimpsonPerson person)
+    + String getName()
+    + void interact(String msg, SimpsonPerson person)
+    + void recieve(String msg, SimpsonPerson person)
+}
+
+class live implements State {
+    - SimpsonPerson person
+    --
+    + live(SimpsonPerson person)
+    + String getName()
+    + void interact(String msg, SimpsonPerson person)
+    + void recieve(String msg, SimpsonPerson person)
+}
+
+class died implements State {
+    - SimpsonPerson person
+    --
+    + died(SimpsonPerson person)
+    + String getName()
+    + void interact(String msg, SimpsonPerson person)
+    + void recieve(String msg, SimpsonPerson person)
 }
 
 enum Gender {
-  MALE
-  FEMALE
+    MALE
+    FEMALE
 }
 
-SimpsonPerson  *--  State : has
+SimpsonPerson "*" *-- "1" Gender : has
 
-SimpsonPerson "1" *-- "1" Gender : has
+
+SimpsonPerson *-- "1" State
+SimpsonWorld --*  SimpsonPerson
+
 
 @enduml

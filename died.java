@@ -13,5 +13,15 @@ public class died implements State {
     public String getName() {
         return person.name;
     }
+
+    @Override
+    public void interact(String msg, SimpsonPerson person) {
+throw new RuntimeException("cannot interact");
+    }
+
+    @Override
+    public void recieve(String msg, SimpsonPerson person) {
+        throw new RuntimeException("cannot interact");
+    }
 }
 

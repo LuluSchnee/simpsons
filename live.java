@@ -8,4 +8,15 @@ public class live implements State{
     public String getName() {
         return person.name;
     }
+
+    @Override
+    public void interact(String msg, SimpsonPerson person) {
+        System.out.println(person.name + ": Sending Message=" + msg);
+        person.world.sendMessage(msg, person);
+    }
+
+    @Override
+    public void recieve(String msg, SimpsonPerson person) {
+        System.out.println(person.name + ": Received Message:" + msg);
+    }
 }

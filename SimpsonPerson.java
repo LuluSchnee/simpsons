@@ -1,12 +1,12 @@
 public class SimpsonPerson implements Person{
-   final String name;
+    final String name;
     Gender gender;
    SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
    SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
 State state;
-
+SimpsonWorld world;
 //strategy pattern, bridge pattern anschauen
-public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father) throws Exception {
+public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father, SimpsonWorld world) throws Exception {
     //runtime exception
     if(name==null || name.length()>3) {
         this.name = name;
@@ -14,6 +14,7 @@ public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPe
         throw new Exception("Name must be longer than 3 characters.");
     }
     setState(new exist(this));
+    this.world = world;
     this.gender = gender;
     this.mother = mother; // Wird hier gesetzt und ist nachher unveränderlich
     this.father = father; // Wird hier gesetzt und ist nachher unveränderlich
@@ -57,5 +58,13 @@ if(this.father==null) {
     }else{
        throw new RuntimeException("Mother cant be changed");
     }
+    }
+
+    public void interact(String msg, SimpsonPerson person) {
+        this.state.interact(msg,this);
+    }
+
+    public void receive(String msg) {
+    this.state.recieve(msg,this);
     }
 }
