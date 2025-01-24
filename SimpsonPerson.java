@@ -1,12 +1,12 @@
 public class SimpsonPerson implements Person{
     final String name;
     Gender gender;
-   SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
-   SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
-State state;
-SimpsonWorld world;
+    SimpsonPerson mother; // final, um nach der Initialisierung nicht mehr änderbar zu sein
+    SimpsonPerson father; // final, um nach der Initialisierung nicht mehr änderbar zu sein
+    State state;
+    SimpsonWorld world;
 //strategy pattern, bridge pattern anschauen
-public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father, SimpsonWorld world) throws Exception {
+public SimpsonPerson(String name, Gender gender, SimpsonPerson mother, SimpsonPerson father) throws Exception {
     //runtime exception
     if(name==null || name.length()>3) {
         this.name = name;
@@ -60,8 +60,8 @@ if(this.father==null) {
     }
     }
 
-    public void interact(String msg, SimpsonPerson person) {
-        this.state.interact(msg,this);
+    public void interact(String msg, SimpsonPerson person, SimpsonWorld world ) {
+        this.state.interact(msg,this, world);
     }
 
     public void receive(String msg) {

@@ -15,7 +15,7 @@ public class died implements State {
     }
 
     @Override
-    public void interact(String msg, SimpsonPerson person) {
+    public void interact(String msg, SimpsonPerson person, SimpsonWorld world) {
 throw new RuntimeException("cannot interact");
     }
 

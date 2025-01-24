@@ -10,7 +10,7 @@ public class exist implements State{
     }
 
     @Override
-    public void interact(String msg, SimpsonPerson person) {
+    public void interact(String msg, SimpsonPerson person, SimpsonWorld world) {
 throw new RuntimeException("kann nicht interagiern");
     }
 

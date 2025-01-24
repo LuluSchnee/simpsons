@@ -10,7 +10,7 @@ public class live implements State{
     }
 
     @Override
-    public void interact(String msg, SimpsonPerson person) {
+    public void interact(String msg, SimpsonPerson person, SimpsonWorld world) {
         System.out.println(person.name + ": Sending Message=" + msg);
         person.world.sendMessage(msg, person);
     }

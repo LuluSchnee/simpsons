@@ -7,7 +7,7 @@ class SimpsonPersonTest {
     @Test
     public void testConstructor_InvalidName_TooShort() throws Exception {
         assertDoesNotThrow(() -> {
-            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null, new SimpsonWorld()); // Short name, will throw exception
+            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null); // Short name, will throw exception
 
         });
 
@@ -19,8 +19,8 @@ class SimpsonPersonTest {
     void setFather()  {
 
         assertDoesNotThrow(() -> {
-            SimpsonPerson Vater = new SimpsonPerson("Vater", Gender.MALE, null, null, new SimpsonWorld());
-            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null, new SimpsonWorld()); // Short name, will throw exception
+            SimpsonPerson Vater = new SimpsonPerson("Vater", Gender.MALE, null, null);
+            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null); // Short name, will throw exception
             Person.setFather(Vater);
 
 
@@ -31,8 +31,8 @@ class SimpsonPersonTest {
     void setMother() {
 
         assertDoesNotThrow(() -> {
-            SimpsonPerson Mutter = new SimpsonPerson("Vater", Gender.MALE, null, null, new SimpsonWorld());
-            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null, new SimpsonWorld()); // Short name, will throw exception
+            SimpsonPerson Mutter = new SimpsonPerson("Vater", Gender.MALE, null, null);
+            SimpsonPerson Person = new SimpsonPerson("Lena", Gender.FEMALE, null, null); // Short name, will throw exception
             Person.setFather(Mutter);
 
 
@@ -42,7 +42,7 @@ class SimpsonPersonTest {
     @Test
     void getNameStateLive() throws Exception {
         String name = "Lena";
-SimpsonPerson  Person= new SimpsonPerson(name,Gender.FEMALE,null,null, new SimpsonWorld());
+SimpsonPerson  Person= new SimpsonPerson(name,Gender.FEMALE,null,null);
 Person.setState(new live(Person));
   assertEquals(name, Person.getName());
     }
@@ -50,13 +50,13 @@ Person.setState(new live(Person));
     @Test
     void getNameStateDied() throws Exception {
         String name = "Lena";
-        SimpsonPerson  Person= new SimpsonPerson(name,Gender.FEMALE,null,null, new SimpsonWorld());
+        SimpsonPerson  Person= new SimpsonPerson(name,Gender.FEMALE,null,null);
         Person.setState(new died(Person));
         assertEquals(name, Person.getName());
     }
     @Test
     void getNameStateExist() throws Exception {
-        SimpsonPerson  Person= new SimpsonPerson("lena",Gender.FEMALE,null,null, new SimpsonWorld());
+        SimpsonPerson  Person= new SimpsonPerson("lena",Gender.FEMALE,null,null);
         assertEquals("Name nicht verfügbar", Person.getName());
     }
 }
