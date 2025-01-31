@@ -1,21 +1,22 @@
+import java.util.ArrayList;
+
 public class Create {
     public static void main(String[] args) throws Exception {
 
-        // von abstracter klass kann man keine instanz bilden
-        SimpsonWorld conversation = new SimpsonWorld();
-        SimpsonPerson Homer = new SimpsonPerson("Homer", Gender.MALE, null, null);
-        SimpsonPerson Marsh = new SimpsonPerson("Marsh", Gender.FEMALE, null, null);
-        SimpsonPerson Tochter = new SimpsonPerson("Sina", Gender.FEMALE, null, null);
+    MaleSimpsonPerson Homer= new UnbornMaleSimpson("Homer");
+    MaleSimpsonPerson Alex= new UnbornMaleSimpson("Alex");
+    Alex = new AliveMaleSimpson((UnbornMaleSimpson)Alex);
+    Homer = new AliveMaleSimpson((UnbornMaleSimpson)Homer);
+    ArrayList <SimpsonPerson> list = new ArrayList<>();
+    list.add(Alex);
+    ((AliveMaleSimpson) Homer).setFather((AliveMaleSimpson) Alex);
+    System.out.println(((AliveMaleSimpson)((AliveMaleSimpson) Homer).getFather()).getName());
+    Alex = new DeadMaleSimpson((AliveMaleSimpson) Alex);
+        list.add(Alex);
+    System.out.println(list);
+    System.out.println(((AliveMaleSimpson) Homer).getFather());
+    System.out.println((Alex));
 
-        Tochter.setState(new live(Tochter));
-
-       conversation.addPerson(Tochter);
-       conversation.addPerson(Homer);
-       Homer.setState(new live(Homer));
-       Tochter.interact("hadkljfdaslf",Tochter, conversation);
-
-   //     System.out.println(Tochter.getName());
-        System.out.println(Tochter.getGender());
         }
 
     }
